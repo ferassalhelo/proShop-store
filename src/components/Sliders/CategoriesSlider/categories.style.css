@@ -1,0 +1,31 @@
+.mySwipe {
+  position: initial;
+  width: 100%;
+  padding: 30px 0;
+}
+
+.mySwipe
+  > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  top: 80px !important;
+  right: 7% !important;
+  left: initial;
+  transform: initial;
+  height: min-content;
+}
+
+@media screen and (max-width: 800px) {
+  .mySwipe
+    > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+    left: 50% !important;
+    top: auto !important;
+    transform: translateX(-50%);
+    width: fit-content;
+    bottom: 15px;
+  }
+}
+.mySwipe
+  > .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal
+  > span {
+  width: 14px;
+  height: 14px;
+}

@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Suspense, useEffect } from "react";
+import { CircularProgress, PaletteMode } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { BrowserRouter } from "react-router-dom";
+import { I18nextProvider, useTranslation } from "react-i18next";
+import "./i18next/i18nex";
+import Header from "./components/Header/Header";
+import Root from "./routs/Root";
+import Itheme from "./theme/theme";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "./redux/products/productsActions";
 
 function App() {
+  const dispatch = useDispatch();
+  const mode: any = useSelector<PaletteMode>((state) => state);
+  const [, i18n] = useTranslation();
+  const theme = createTheme(Itheme(mode.theme));
+  const data = useSelector((state) => state);
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
+  console.log(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <I18nextProvider i18n={i18n}>
+        <Suspense fallback={<CircularProgress />}>
+          <BrowserRouter>
+            <Header />
+            <Root />
+          </BrowserRouter>
+        </Suspense>
+      </I18nextProvider>
+    </ThemeProvider>
   );
 }
 

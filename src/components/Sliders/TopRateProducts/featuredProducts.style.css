@@ -1,0 +1,25 @@
+.Swip {
+  /* padding: 45px 0; */
+  margin: 40px 0;
+  border-radius: 16px;
+  border: 1px solid #fcdd06;
+}
+
+.Swip
+  > .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal
+  > span {
+  width: 15px;
+  height: 15px;
+}
+.Swip
+  > .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 0;
+}
+.Swip > div.swiper-wrapper > div.swiper-slide {
+  border-right: 1px solid #838383;
+}
+
+.Swip > div.swiper-wrapper > .swiper-slide:last-child {
+  width: 50%;
+  border: none;
+}

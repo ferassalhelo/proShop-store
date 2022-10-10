@@ -1,0 +1,14 @@
+.mySwip {
+  padding: 45px 0;
+}
+
+.mySwip
+  > .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal
+  > span {
+  width: 15px;
+  height: 15px;
+}
+.mySwip
+  > .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 0;
+}
