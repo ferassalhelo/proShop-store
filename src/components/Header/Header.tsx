@@ -26,7 +26,7 @@ const Header = () => {
       <HeaderContainer>
         <GridConainer container sx={{ display: { xs: "none", lg: "flex" } }}>
           <Logo />
-          <Grid item lg={7} xl={5}>
+          <Grid item lg={5} >
             <Search />
           </Grid>
           <Grid item>

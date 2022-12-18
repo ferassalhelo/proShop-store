@@ -8,7 +8,7 @@ export const HeaderContainer = styled(AppBar)({
   height: "85px",
   justifyContent: "center",
   padding: "0 7%",
-  boxShadow: "none !important",
+  boxShadow: "none !important", 
 });
 
 export const GridConainer = styled(Grid)({

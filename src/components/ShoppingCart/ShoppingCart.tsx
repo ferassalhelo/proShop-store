@@ -1,5 +1,4 @@
 import { Grid, Typography } from "@mui/material";
-import React from "react";
 import Counter from "../Counter/Counter";
 import Img from "../Img/Img";
 import { DeleteBotton } from "./shoppingCart.style";

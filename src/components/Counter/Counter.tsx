@@ -1,17 +1,10 @@
 import { Grid } from "@mui/material";
 import Button from "../Button/Button";
-import style from "./counter.style";
+import { Input } from "./counter.style";
 
 export default function Counter() {
-  const Style = style;
-
   return (
-    <Grid
-      container
-      direction="row"
-      wrap="nowrap"
-      borderColor="background.primary"
-    >
+    <Grid container wrap="nowrap" borderColor="background.primary">
       <Grid item width="50px">
         <Button
           variant="outlined"
@@ -24,7 +17,7 @@ export default function Counter() {
         </Button>
       </Grid>
       <Grid item flexGrow={5}>
-        <input style={Style.input} value={1} readOnly />
+        <Input value={1} readOnly />
       </Grid>
       <Grid item width="50px">
         <Button

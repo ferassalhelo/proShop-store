@@ -19,10 +19,10 @@ interface IProps {
 }
 
 export default function ProductCard({ data }: IProps) {
- const [t] = useTranslation();
+  const [t] = useTranslation();
   return (
     <CardBox>
-      <Link to={`product/${data._id}`}>
+      <Link to={`/product/${data._id}`}>
         {data.discount > 0 && (
           <DiscountPercentage>
             -{Math.floor((100 / data.price) * data.discount)}%
@@ -33,7 +33,7 @@ export default function ProductCard({ data }: IProps) {
         </Box>
       </Link>
       <CardContent>
-        <Link to={`../product/${data._id}}`}>
+        <Link to={`/product/${data._id}}`}>
           <ProductName>{data.name}</ProductName>
           <Rating readonly value={data.rating} />
           <Box>

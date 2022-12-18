@@ -39,6 +39,10 @@ let Itheme = (mode: PaletteMode): IType => ({
             variant: "#F7F8FC",
             paper: "#FC4059",
           },
+          action: {
+            disabledBackground:'#ffe427',
+          }
+      
         }
       : {
           primary: {

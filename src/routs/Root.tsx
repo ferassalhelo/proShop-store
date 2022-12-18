@@ -13,14 +13,14 @@ export default function Root() {
         <Route
           key={item.id}
           path={item.path}
-          element={false ? item.component : <Navigate to="../login" />}
+          element={true ? item.component : <Navigate to="../login" />}
         />
       ))}
       {AdminRouts.map((item) => (
         <Route
           key={item.id}
           path={item.path}
-          element={false ? item.component : <Navigate to="/" />}
+          element={true ? item.component : <Navigate to="/" />}
         />
       ))}
     </Routes>

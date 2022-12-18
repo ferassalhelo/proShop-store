@@ -1,7 +1,7 @@
 import { lazy, ReactNode } from "react";
 
-const ListProductsPage = lazy(
-  () => import("../../screen/AdminPages/ListProductsPage/ListProductsPage")
+const Dashpoard = lazy(
+  () => import("../../screen/AdminPages/Dashpoard/Dashpoard")
 );
 const CreateNewProductPage = lazy(
   () =>
@@ -13,8 +13,8 @@ type obj = Array<{ id: string; path: string; component: ReactNode }>;
 const AdminRouts: obj = [
   {
     id: `${Math.random()}`,
-    path: "listProducts",
-    component: <ListProductsPage />,
+    path: "dashpoard",
+    component: <Dashpoard />,
   },
   {
     id: `${Math.random()}`,

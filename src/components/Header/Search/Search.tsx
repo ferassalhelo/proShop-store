@@ -32,13 +32,14 @@ export default function Search() {
           placeholder={t("search") + "..."}
         />
       </Grid>
-      <Grid item xs={5} lg={3}>
+      <Grid item xs={5} lg={4} xl={3}>
         <Button
           onClick={intoNavigate}
           fontSize="1rem"
           fontWeight="700"
           borderRadius="6px"
           minWidth="100px"
+          // loading
         >
           <SearchIcon />
           {value === "" ? t("allProducts") : t("search")}

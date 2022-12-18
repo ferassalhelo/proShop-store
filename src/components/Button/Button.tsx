@@ -4,10 +4,11 @@ import { ReactNode } from "react";
 
 interface IProps extends CSSProperties {
   children: ReactNode | string;
-  disabled?: boolean;
+  // disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   loading?: boolean;
   variant?: "text" | "outlined" | "contained";
+  type?: "submit";
 }
 
 export default function Button(props: IProps) {
@@ -16,13 +17,16 @@ export default function Button(props: IProps) {
   delete styleProps.loading;
   delete styleProps.children;
   delete styleProps.variant;
+  delete styleProps.type;
 
   return (
     <Btn
-      disabled={props.disabled}
+      type={props.type}
+      disabled={props.loading}
       onClick={props.onClick}
       variant={props.variant ? props.variant : "contained"}
       sx={{
+        backgroundColor: "primary",
         borderRadius: "10px",
         minHeight: "40px",
         minWidth: "50px",
@@ -37,7 +41,9 @@ export default function Button(props: IProps) {
       }}
     >
       {props.loading ? (
-        <CircularProgress style={{ width: "25px", height: "25px" }} />
+        <CircularProgress
+          style={{ width: "25px", height: "25px", color: "black" }}
+        />
       ) : (
         props.children
       )}

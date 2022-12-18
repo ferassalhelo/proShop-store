@@ -4,10 +4,14 @@ import ProductCard from "../../../components/ProductCards/ProductCard/ProductCar
 import { SilverScreen } from "../../screens.style";
 import ProductType from "../../../Types/ProductsTypes/productType";
 import Divider from "../../../components/Divider/Divider";
-import { Grid } from "@mui/material";
+import { Grid, Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import img from "../../../assets/imges/empty.svg";
+import Img from "../../../components/Img/Img";
+import { useTranslation } from "react-i18next";
 
 export default function SearchPage() {
+  const [t] = useTranslation();
   const { value }: any = useParams();
   const [result, setResult] = useState<Array<ProductType | null>>([]);
   const allProducts = useSelector(
@@ -39,7 +43,22 @@ export default function SearchPage() {
           })}
         </Grid>
       ) : (
-        <p>not exest any item...</p>
+        <Box textAlign="center" height="55vh" mt="20px">
+          <Img src={img} />
+          <Typography variant="h4" pt="20px" color="text.primary">
+            {t("noPName")}{" "}
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              textTransform="uppercase"
+              color="text.secondary"
+              component="span"
+              noWrap
+            >
+              ( {value} )
+            </Typography>
+          </Typography>
+        </Box>
       )}
     </SilverScreen>
   );

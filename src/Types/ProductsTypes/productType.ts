@@ -1,6 +1,5 @@
 export default interface ProductType {
   images: Array<string>;
-
   colors: Array<string>;
   categories: Array<string>;
   rating: number;

@@ -2,6 +2,8 @@ import TranslateIcon from "@mui/icons-material/Translate";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PersonIcon from "@mui/icons-material/Person";
 import { Grid } from "@mui/material";
 import Badge from "../Badge/Badge";
 import { useTranslation } from "react-i18next";
@@ -32,6 +34,22 @@ export default function ButtonBadgeGroup() {
       justifyContent="space-around"
       sx={{ pt: { xs: "15px", lg: "0" } }}
     >
+      <Grid item>
+        {true ? (
+          <Badge icon={<PersonIcon />} text={t("userStatus")} path="/profile" />
+        ) : (
+          <Badge icon={<PersonIcon />} text={t("userStatus")} path="/login" />
+        )}
+      </Grid>
+      <Grid item>
+        {true ? (
+          <Badge
+            icon={<DashboardIcon />}
+            text={t("dashpoard")}
+            path="/dashpoard"
+          />
+        ) : null}
+      </Grid>
       <Grid item>
         <Badge
           icon={<ShoppingCartIcon />}

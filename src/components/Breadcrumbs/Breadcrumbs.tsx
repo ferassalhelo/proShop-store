@@ -9,7 +9,7 @@ interface IProps {
 
 export default function Breadcrumbs(props: IProps) {
   let theme = useTheme();
-  let [t] = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <Breadc sx={{ fontSize: "1.5rem" }}>
