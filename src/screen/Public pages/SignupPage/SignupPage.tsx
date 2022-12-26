@@ -8,8 +8,12 @@ import Img from "../../../components/Img/Img";
 import img from "../../../assets/imges/SignUp.png";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { signup } from "../../../redux/auth&profile/auth&profileActions";
 
 export default function SignupPage() {
+  const signUpProccess = useSelector((state: any) => state.auth.authProccess);
+  const dispatch = useDispatch();
   const [t] = useTranslation();
   return (
     <Screen>
@@ -35,11 +39,10 @@ export default function SignupPage() {
               lastName: "",
               email: "",
               password: "",
-              confirmPassword: "",
+              passwordConfirmation: "",
             }}
             onSubmit={(values) => {
-              // dispatch(signInAction(values));
-              console.log(values);
+              dispatch(signup(values));
             }}
             validationSchema={SignupSchema}
           >
@@ -84,14 +87,19 @@ export default function SignupPage() {
                 {t("confirmPassword")}
               </Typography>
               <Input
-                name="confirmPassword"
+                name="passwordConfirmation"
                 placeholder="●●●●●●●●"
                 type="password"
               />
               <Box color="red" mt="5px">
-                <ErrorMessage name="confirmPassword" />
+                <ErrorMessage name="passwordConfirmation" />
               </Box>
-              <Button type="submit" borderRadius="6px" margin="30px 0">
+              <Button
+                loading={signUpProccess}
+                type="submit"
+                borderRadius="6px"
+                margin="30px 0"
+              >
                 {t("signup")}
               </Button>
               <Divider sx={{ my: "20px" }} />

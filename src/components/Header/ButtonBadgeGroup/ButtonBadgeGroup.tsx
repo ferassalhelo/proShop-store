@@ -8,13 +8,15 @@ import { Grid } from "@mui/material";
 import Badge from "../Badge/Badge";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggelTheme } from "../../../redux/theme/themeActions";
+import Img from "../../Img/Img";
 
 export default function ButtonBadgeGroup() {
+  const authData = useSelector((state: any) => state.auth.data);
+  const dispach = useDispatch();
   const [t, i18n] = useTranslation();
   const theme = useTheme();
-  const dispach = useDispatch();
 
   const toggleLang = () => {
     if (i18n.language === "ar") {
@@ -35,21 +37,33 @@ export default function ButtonBadgeGroup() {
       sx={{ pt: { xs: "15px", lg: "0" } }}
     >
       <Grid item>
-        {true ? (
-          <Badge icon={<PersonIcon />} text={t("userStatus")} path="/profile" />
+        {authData._id ? (
+          <Badge
+            icon={
+              authData.profileImage ? (
+                <Img src={authData.profileImage} />
+              ) : (
+                <PersonIcon />
+              )
+            }
+            text={authData.firstName + " " + authData.lastName}
+            path="/profile"
+          />
         ) : (
           <Badge icon={<PersonIcon />} text={t("userStatus")} path="/login" />
         )}
       </Grid>
-      <Grid item>
-        {true ? (
+
+      {authData.isAdmin ? (
+        <Grid item>
           <Badge
             icon={<DashboardIcon />}
             text={t("dashpoard")}
             path="/dashpoard"
           />
-        ) : null}
-      </Grid>
+        </Grid>
+      ) : null}
+
       <Grid item>
         <Badge
           icon={<ShoppingCartIcon />}

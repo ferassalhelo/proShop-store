@@ -1,25 +1,23 @@
 import { Box, Grid, Typography } from "@mui/material";
+import { ReviewType } from "../../Types/ProductsTypes/productType";
 import Rating from "../Ratting/Ratting";
 
 interface IProps {
-  name: string;
-  date: string;
-  rate: string;
-  text: string;
+  data: ReviewType;
 }
 
-export default function ProductReview(props: IProps) {
+export default function ProductReview({ data }: IProps) {
   return (
-    <Box>
+    <Box mb="50px">
       <Typography variant="h5" color="text.primary" fontWeight="bold">
-        Jenifer Medhurst
+        {data.name}
       </Typography>
-      <Grid container justifyContent="space-between" alignItems='center'>
+      <Grid container justifyContent="space-between" alignItems="center">
         <Grid item py="15px">
-          <Rating readonly value={4} />
+          <Rating readonly value={+data.rating} />
         </Grid>
         <Grid item>
-          <Typography color="text.secondary">28th March 2022</Typography>
+          <Typography color="text.secondary">{data.createdAt}</Typography>
         </Grid>
       </Grid>
       <Typography
@@ -27,14 +25,7 @@ export default function ProductReview(props: IProps) {
         color="text.primary"
         p="20px 30px"
       >
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-        amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-        rebum. Stet clita.
+        {data.comment}
       </Typography>
     </Box>
   );

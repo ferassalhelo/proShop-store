@@ -51,6 +51,7 @@ const EN: object = {
   noPName: "There is no product with this name",
   pNotFound: "PAGE NOT FOUND!",
   sale: "Sale",
+  color: "color",
   size: "Size",
   selectOptions: "Select an option",
   reviews: "Reviews",

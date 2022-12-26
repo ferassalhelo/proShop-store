@@ -1,3 +1,13 @@
+export interface ReviewType {
+  comment: string;
+  createdAt: string;
+  name: string;
+  rating: 5;
+  updatedAt: string;
+  user: string;
+  _id: string;
+}
+
 export default interface ProductType {
   images: Array<string>;
   colors: Array<string>;
@@ -12,15 +22,7 @@ export default interface ProductType {
   description: string;
   brand: string;
   user: string;
-  reviews: Array<{
-    _id: string;
-    name: string;
-    rating: number;
-    comment: string;
-    user: string;
-    createdAt: string;
-    updatedAt: string;
-  }>;
+  reviews: Array<ReviewType>;
   __v: number;
   createdAt: string;
   updatedAt: string;

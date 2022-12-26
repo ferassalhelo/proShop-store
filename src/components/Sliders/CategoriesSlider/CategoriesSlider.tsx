@@ -11,7 +11,6 @@ import "./categories.style.css";
 import Progress from "../../Progress/Progress";
 
 export default function CategoriesSlider({ data }: any) {
-  console.log(data);
   const [t] = useTranslation();
   return (
     <Box p="40px 7% 0" position="relative">

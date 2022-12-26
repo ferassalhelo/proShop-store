@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { Badg, BadgeName } from "./bage.style";
+import { Badg, BadgeName, IconBox } from "./bage.style";
 
 interface IProps {
   icon: ReactNode;
@@ -15,12 +15,16 @@ export default function Badge(props: IProps) {
     <>
       {props.path ? (
         <Link to={props.path}>
-          <Badg badgeContent={props.badgeContent}>{props.icon}</Badg>
+          <Badg badgeContent={props.badgeContent}>
+            <IconBox>{props.icon}</IconBox>
+          </Badg>
           <BadgeName>{props.text}</BadgeName>
         </Link>
       ) : (
         <div onClick={props.onClick} style={{ cursor: "pointer" }}>
-          <Badg badgeContent={props.badgeContent}>{props.icon}</Badg>
+          <Badg badgeContent={props.badgeContent}>
+            <IconBox>{props.icon}</IconBox>
+          </Badg>
           <BadgeName>{props.text}</BadgeName>
         </div>
       )}

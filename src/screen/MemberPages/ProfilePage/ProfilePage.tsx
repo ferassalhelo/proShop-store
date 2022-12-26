@@ -10,10 +10,13 @@ import {
   SecondaryContainer,
 } from "./ProfilePage.style";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../redux/auth&profile/auth&profileActions";
 
 type obj = Array<{ name: string; value: string }>;
 
 export default function ProfilePage() {
+  const dispatch = useDispatch();
   const [t] = useTranslation();
   let [myOrder, handleMyOrder] = useState(false);
   let profileData = {
@@ -84,6 +87,7 @@ export default function ProfilePage() {
               variant="h6"
               my="30px"
               sx={{ cursor: "pointer" }}
+              onClick={() => dispatch(logout())}
             >
               {t("logout")}
             </Typography>

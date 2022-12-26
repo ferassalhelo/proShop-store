@@ -5,6 +5,7 @@ export const ColorItem = styled(Box)((props: any) => ({
   borderRadius: "50%",
   width: "40px",
   height: "40px",
+  border: "1px solid black",
 }));
 
 export const ColorBox = styled(Box)(({ theme }: any) => ({

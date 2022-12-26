@@ -20,7 +20,7 @@ import {
   GET_CATEGORY_FAILD,
   GET_CATEGORY_END,
 } from "./productsTypes";
-import { actionType } from "../../Types/ProductsTypes/actionsType";
+import { reduxActionType } from "../../Types/reduxActionsType";
 import { productsStateType } from "../../Types/ProductsTypes/stateOfProductsReducerType";
 
 const STATE: productsStateType = {
@@ -51,7 +51,7 @@ const STATE: productsStateType = {
   },
 };
 
-export const productReducer = (state = STATE, action: actionType) => {
+export const productReducer = (state = STATE, action: reduxActionType) => {
   switch (action.type) {
     // all products
     case GET_PRODUCTS_START:

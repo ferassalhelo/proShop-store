@@ -52,6 +52,7 @@ const AR: object = {
   noPName: "لا يحتوي أي منتج على هذا الإسم",
   pNotFound: "الصفحة غير موجودة!",
   sale: "خصم",
+  color: "اللون",
   size: "الحجم",
   selectOptions: "حدد خيار",
   reviews: "المراجعات",

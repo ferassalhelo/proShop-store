@@ -9,11 +9,12 @@ import {
   getTopProducts,
   getAllCategory,
 } from "../../../redux/products/productsActions";
+import { GET_AUTH_SUCCESS } from "../../../redux/auth&profile/auth&profileTypes";
+import { getProfile } from "../../../redux/auth&profile/auth&profileActions";
 
 export default function HomePage() {
   const store = useSelector((state: any) => state.products);
   const dispatch = useDispatch();
-
   useEffect(() => {
     (() =>
       store.topProducts.topProductsItems.length === 0
@@ -23,6 +24,8 @@ export default function HomePage() {
       store.allCategory.allCategoryItems.length === 0
         ? dispatch(getAllCategory())
         : null)();
+    let authData = JSON.parse(localStorage.getItem("authData") || "{}");
+    dispatch({ type: GET_AUTH_SUCCESS, peload: authData });
   }, [
     dispatch,
     store.allCategory.allCategoryItems.length,

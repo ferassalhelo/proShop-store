@@ -1,6 +1,6 @@
 import { Grid, Typography, Box, Divider } from "@mui/material";
 import { Screen } from "../../screens.style";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import { SigninSchema } from "../../../Helper/validation";
 import Button from "../../../components/Button/Button";
 import Input from "../../../components/FormItems/Input/Input";
@@ -8,8 +8,12 @@ import Img from "../../../components/Img/Img";
 import img from "../../../assets/imges/SignIn.png";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../../redux/auth&profile/auth&profileActions";
 
 export default function LoginPage() {
+  const loginProccess = useSelector((state: any) => state.auth.authProccess);
+  const dispatch = useDispatch();
   const [t] = useTranslation();
   return (
     <Screen>
@@ -33,11 +37,9 @@ export default function LoginPage() {
             initialValues={{
               email: "",
               password: "",
-              remember: false,
             }}
             onSubmit={(values) => {
-              // dispatch(signInAction(values));
-              console.log(values);
+              dispatch(login(values));
             }}
             validationSchema={SigninSchema}
           >
@@ -56,14 +58,15 @@ export default function LoginPage() {
               <Box color="red" mt="5px">
                 <ErrorMessage name="password" />
               </Box>
-              <Button type="submit" borderRadius="6px" margin="30px 0">
+              <Button
+                loading={loginProccess}
+                type="submit"
+                borderRadius="6px"
+                margin="30px 0"
+              >
                 {t("logIn")}
               </Button>
               <Box textAlign="center">
-                <Field type="checkbox" name="remember" />
-                <Typography component="span" variant="h5" color="text.primary">
-                  {t("remember")}
-                </Typography>
                 <Divider sx={{ height: "5px", my: "30px" }} />
                 <Link to="/signup">
                   <Button

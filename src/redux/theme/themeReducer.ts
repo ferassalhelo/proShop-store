@@ -1,8 +1,8 @@
 import { PaletteMode } from "@mui/material";
-import { actionType } from "../../Types/ProductsTypes/actionsType";
+import { reduxActionType } from "../../Types/reduxActionsType";
 import { TOGLE_THEME } from "./themeTypes";
 
-const themeReducer = (mode: PaletteMode = "light", action: actionType) => {
+const themeReducer = (mode: PaletteMode = "light", action: reduxActionType) => {
   switch (action.type) {
     case TOGLE_THEME:
       return mode === "light" ? (mode = "dark") : (mode = "light");
