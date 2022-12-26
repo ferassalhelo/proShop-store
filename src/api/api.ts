@@ -4,9 +4,11 @@ const URL = "https://prohop-express.herokuapp.com/";
 
 const AxiosSetting = axios.create({
   headers: {
-    token: localStorage.getItem("authData")
-      ? JSON.parse(localStorage.getItem("authData") || "").token
-      : "",
+    Authorization: `Bearer ${
+      localStorage.getItem("authData")
+        ? JSON.parse(localStorage.getItem("authData") || "").token
+        : ""
+    }`,
   },
   baseURL: URL + "api",
 });
